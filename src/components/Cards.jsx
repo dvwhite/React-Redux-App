@@ -7,17 +7,32 @@ import { getTopStories, getStory } from './../actions/actions';
 import { connect } from 'react-redux';
 
 const Cards = (props) => {
+  // Fetch all 500 top articleIds and store them in state
   useEffect(() => {
-    // props.getTopStories();
-    props.getStory(22479178);
+    props.getTopStories();
   }, [])
+
+  // Send an API call for each article in the articleIds array in state
+  // Push the results to the articles array
+  useEffect(() => {
+    const stories = props.articleIds.ids;
+    const cursor = props.articleIds.cursor;
+    const size = props.articleIds.size;
+    const nthStories = stories.slice(cursor, cursor + size);
+    nthStories.map(storyId => {
+      props.getStory(storyId);
+    })
+  }, [props.articleIds.ids])
 
   return (
     <div>
       <h1>The cards:</h1>
       {
-        props.articleIds.ids.map(articleId => (
-          <div>{articleId}</div>
+        props.articles.map(article => (
+          <div>
+            <a href={article.url}>{article.title}</a>
+            <h3>By: {article.by}</h3>
+          </div>
         ))
       }
     </div>
