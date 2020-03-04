@@ -30,15 +30,6 @@ export const getTopStories = () => dispatch => {
 };
 
 /**
- * @function: Slices the array of all stories from cursor to cursor + size
- * @param: none
- * @returns: A thunk that takes dispatch as an argument
- */
-export const getNthStories = () => dispatch => {
-  dispatch({ type: GET_NTH_STORIES })
-};
-
-/**
  * @function:
  * @param {*} id: The id of the story for use in the hacker news API endpoint
  * @returns: A thunk that takes dispatch as an argument
@@ -49,7 +40,6 @@ export const getStory = id => dispatch => {
   axios
     .get(urlAPI)
     .then(res => {
-      console.log("Single story:", res.data)
       dispatch({ type: FETCH_STORY_SUCCESS, payload: res.data })
     })
     .catch(err => {
