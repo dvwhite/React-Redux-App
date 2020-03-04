@@ -23,19 +23,43 @@ const initialState = {
 export const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_STORY_START:
-      return state;
+      return {
+        ...state,
+        error: '',
+        isFetching: true
+      };
     case FETCH_STORY_SUCCESS:
-      return state;
+      return {
+        ...state,
+        articles: [...state.articles, action.payload]
+      };
     case FETCH_STORY_FAIL:
-      return state;
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
     case FETCH_ALL_STORIES_START:
-      return state;
+      return {
+        ...state,
+        error: '',
+        isFetching: true
+      };
     case FETCH_ALL_STORIES_SUCCESS:
-      return state;
+      return {
+        ...state,
+        articleIds: {
+          ...state.articleIds,
+          ids: action.payload
+        },
+        isFetching: false
+      };
     case FETCH_ALL_STORIES_FAIL:
-      return state;
-    case GET_NTH_STORIES:
-      return state;
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
     default:
       return state;
   }
