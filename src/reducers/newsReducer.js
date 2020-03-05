@@ -5,8 +5,7 @@ import {
   FETCH_STORY_FAIL,
   FETCH_ALL_STORIES_START,
   FETCH_ALL_STORIES_SUCCESS,
-  FETCH_ALL_STORIES_FAIL,
-  GET_NTH_STORIES
+  FETCH_ALL_STORIES_FAIL
 } from "./../constants/ActionTypes";
 
 const initialState = {
