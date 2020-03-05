@@ -1,12 +1,24 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 // Action imports
-import { getTopStories, getStory } from './../actions/actions';
+import { getTopStories, getStory } from '../actions/actions';
 
 // Redux imports
 import { connect } from 'react-redux';
 
-const Cards = (props) => {
+// Components
+import Story from './Story';
+
+// Styled components
+const Cards = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+`
+
+const Stories = (props) => {
   // Fetch all 500 top articleIds and store them in state
   useEffect(() => {
     props.getTopStories();
@@ -26,15 +38,16 @@ const Cards = (props) => {
 
   return (
     <div>
-      <h1>The cards:</h1>
-      {
-        props.articles.map(article => (
-          <div>
-            <a href={article.url}>{article.title}</a>
-            <h3>By: {article.by}</h3>
-          </div>
-        ))
-      }
+      <h1>Top 10 Hacker News Articles</h1>
+      <Cards>
+        {
+          props.articles
+            .sort((article1, article2) => article1.id > article2.id ? -1: 1)
+            .map(article => (
+              <Story data={article} key={article.id} />
+            ))
+        }
+      </Cards>
     </div>
   )
 }
@@ -46,4 +59,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getTopStories, getStory })(Cards);
+export default connect(mapStateToProps, { getTopStories, getStory })(Stories);

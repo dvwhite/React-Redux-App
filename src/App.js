@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 // Component imports
-import Cards from './components/Cards';
+import Stories from './components/Stories';
 
 function App() {
   return (
     <div className="App">
-     <Cards />
+     <Stories />
     </div>
   );
 }
