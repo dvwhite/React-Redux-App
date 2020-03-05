@@ -8,20 +8,30 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
-  width: 380px;
+  width: 345px;
+  height: 170px;
   margin: 2%;
   padding: 2%;
+  overflow: hidden;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 8px #444;
+  }
 `
 
 const Headline = styled.a`
-  font-size: 25px;
+  font-size: 1.75rem;
   font-family: Didot, serif;
   text-decoration: none;
   color: inherit;
+  margin-top: 2%;
+  outline: 0;
 `
 
 const Author = styled.div`
-  margin-top: 1%;
+  margin-top: 5%;
   display: flex;
 `
 

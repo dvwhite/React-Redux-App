@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 // Components
 import Story from './Story';
+import Header from './Header';
 
 // Styled components
 const Cards = styled.div`
@@ -38,7 +39,7 @@ const Stories = (props) => {
 
   return (
     <div>
-      <h1>Top 10 Hacker News Articles</h1>
+      <Header />
       <Cards>
         {
           props.articles

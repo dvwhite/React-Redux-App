@@ -4,11 +4,14 @@ body {
 }
 
 .App {
+  margin: 0 auto;
   text-align: center;
+  width: 90%;
 }
 
 .img-container {
   display: flex;
+  align-items: center;
   padding-right: 3%;
   border-right: 1px solid lightgrey;
   height: 40px;
