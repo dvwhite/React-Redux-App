@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Moment.js for time formatting
+import moment from 'moment';
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -41,7 +44,7 @@ const Wrapper = styled.div`
 const Header = () => {
   return (
     <Wrapper>
-      <span className='date'>3/4/2020</span>
+      <span className='date'>{moment().format('MM/DD/YYYY')}</span>
       <h1>Top 10 Hacker News Articles</h1>
       <span className='temp'>57°</span>
     </Wrapper>
