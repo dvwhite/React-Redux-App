@@ -1,0 +1,25 @@
+body {
+  background-color: rgb(241, 241, 241);
+  color: rgb(51, 51, 51);
+}
+
+.App {
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+  padding-right: 3%;
+  border-right: 1px solid lightgrey;
+  height: 40px;
+}
+
+span {
+  padding-left: 3%;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
